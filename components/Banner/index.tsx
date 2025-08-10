@@ -1,14 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
-import { useEffect, useState, useContext } from 'react';
 import axios from 'axios';
+import { useContext, useEffect, useState } from 'react';
 
-import Button from '../Button';
-import { Media } from '../../types';
-import { Play, Info } from '../../utils/icons';
 import { ModalContext } from '../../context/ModalContext';
 import styles from '../../styles/Banner.module.scss';
-
-
+import { Media } from '../../types';
+import { Info, Play } from '../../utils/icons';
+import Button from '../Button';
 
 export default function Banner() {
   const [media, setMedia] = useState<Media>();

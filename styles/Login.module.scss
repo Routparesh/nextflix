@@ -17,9 +17,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+  width: 100%;
+  height: 100vh; // i
 
   &__bgImage {
-    z-index: 0;
+    z-index: -1;
     background-color: #0e0e0e99;
   }
 
@@ -28,7 +31,7 @@
     padding: 1.5rem;
     text-align: left;
     color: inherit;
-    background-color:$background-overlay;
+    background-color: $background-overlay;
     color: $white;
     text-decoration: none;
     z-index: 100;
@@ -39,7 +42,7 @@
       padding: 0.7rem;
       text-align: center;
       border-radius: 0.2rem;
-      min-width: 18rem ;
+      min-width: 18rem;
       transition: linear 200ms ease-in-out;
 
       &:hover {
@@ -49,6 +52,4 @@
       }
     }
   }
-
-
 }

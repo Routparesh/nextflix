@@ -34,16 +34,13 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-      - name: Install Sonar Scanner
-        run: |
-          curl -sSLo sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747-linux.zip
-          unzip sonar-scanner.zip -d $HOME
-          echo "$HOME/sonar-scanner-4.7.0.2747-linux/bin" >> $GITHUB_PATH
-
-      - name: Run SonarQube Analysis
+      - uses: sonarsource/sonarcloud-github-action@v1
+        with:
+          args: >
+            -Dsonar.projectKey=netflix_project
+            -Dsonar.host.url=https://sonarcloud.io
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: sonar-scanner -Dsonar.projectKey=netflix_project -Dsonar.host.url=https://sonarcloud.io
 
   build-and-push:
     runs-on: ubuntu-latest

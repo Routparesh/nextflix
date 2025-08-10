@@ -34,13 +34,14 @@ jobs:
         with:
           distribution: temurin
           java-version: 17
-
+      - name: Verify Java version
+        run: java -version
       - name: Install Sonar Scanner
         run: |
           curl -sSLo sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.7.0.2747-linux.zip
           unzip sonar-scanner.zip -d $HOME
           echo "$HOME/sonar-scanner-4.7.0.2747-linux/bin" >> $GITHUB_PATH
-
+          export PATH="$HOME/sonar-scanner-4.7.0.2747-linux/bin:$PATH"
       - name: Run SonarQube Analysis
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}

@@ -6,7 +6,8 @@
     "dev": "set NODE_OPTIONS=--openssl-legacy-provider && next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "echo \"No tests yet\" && exit 0"
   },
   "dependencies": {
     "axios": "^0.21.1",
